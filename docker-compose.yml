@@ -10,10 +10,17 @@ services:
     labels:
       starbound.destcription: "Peronal Starbound Server"
       starbound.name: "Starbound Server"
+    networks:
+      - starbound
     volumes:
       - "starbound-data:/steamcmd/"
-    ports:
-      - "21025:21025"
+    #ports:
+      #- "21025:21025"
+
+networks:
+  starbound:
+    external:
+      name: "host"
 
 volumes:
   starbound-data:

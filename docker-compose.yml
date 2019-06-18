@@ -1,5 +1,6 @@
 version: "3.7"
 services:
+
   starbound:
     image: jazy5552/starbound-server
     deploy:
@@ -16,6 +17,26 @@ services:
       - "starbound-data:/steamcmd/"
     #ports:
       #- "21025:21025"
+
+  backuper:
+    deploy:
+      restart_policy:
+        delay: 10m
+        max_attempts: 10
+    environment:
+      - CONTINOUS_BACKUP=true
+      - BACKUP_FILES="./starbound-server/storage/"
+      - BACKUP_PREFIX=starbound-
+      - BACKUP_CRON_TIME=0 8 */3 * *
+      - BACKUP_INPUT_DIR=/backup-input
+      - BACKUP_OUTPUT_DIR=/backup-output
+      - STALE_BACKUP_TIME=30
+    image: jazy5552/backuper
+    labels:
+      jazy.terraria.backuper.description: "Container to create backups for starbound"
+    volumes:
+      - "starbound-data:/backup-input:ro"
+      - "/home/jazy/starbound-server/backups:/backup-output"
 
 networks:
   starbound:

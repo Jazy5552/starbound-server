@@ -1,10 +1,6 @@
 FROM jazy5552/steamcmd
 MAINTAINER Jazy <jazy@jazyserver.com>
 
-# Set ENV through a .env file/compose file
-ENV STEAM_USERNAME=""
-ENV STEAM_PASSWORD=""
-
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends --no-install-suggests \

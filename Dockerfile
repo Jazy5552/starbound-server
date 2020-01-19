@@ -8,7 +8,8 @@ ENV STEAM_PASSWORD=""
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends --no-install-suggests \
-    libvorbisfile3
+    libvorbisfile3 \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY update_starbound_server.sh /
 COPY start_starbound_server.sh /

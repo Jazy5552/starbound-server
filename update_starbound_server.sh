@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # WARNING WILL PROMPT FOR STEAMGUARD
+cd /root
 /steamcmd/steamcmd.sh \
   +login $STEAM_USERNAME $STEAM_PASSWORD \
   +force_install_dir /steamcmd/starbound-server/ \

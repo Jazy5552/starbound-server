@@ -3,7 +3,7 @@ services:
 
   starbound:
     build: .
-    image: jazy5552/starbound-server:latest
+    image: jazy5552/starbound-server:1.0
     deploy:
       replicas: 1
       restart_policy:

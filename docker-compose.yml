@@ -12,12 +12,10 @@ services:
     labels:
       jazy.starbound.server.description: "Peronal Starbound Server"
       jazy.starbound.server.name: "Starbound Server"
-    networks:
-      - starbound
     volumes:
       - "starbound-data:/steamcmd/"
-    #ports:
-      #- "21025:21025"
+    ports:
+      - "21025:21025"
 
   backuper:
     deploy:
@@ -38,11 +36,6 @@ services:
     volumes:
       - "starbound-data:/backup-input:ro"
       - "/home/jazy/starbound-server/backups:/backup-output"
-
-networks:
-  starbound:
-    external:
-      name: "host"
 
 volumes:
   starbound-data:

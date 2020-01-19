@@ -1,7 +1,7 @@
 FROM jazy5552/steamcmd
 MAINTAINER Jazy <jazy@jazyserver.com>
 
-# Set ENV through a .env file if needed
+# Set ENV through a .env file/compose file
 ENV STEAM_USERNAME=""
 ENV STEAM_PASSWORD=""
 

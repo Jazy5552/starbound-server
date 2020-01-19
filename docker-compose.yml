@@ -2,6 +2,7 @@ version: "3.7"
 services:
 
   starbound:
+    build: .
     image: jazy5552/starbound-server
     deploy:
       replicas: 1
@@ -9,8 +10,8 @@ services:
         delay: 10m
         max_attempts: 10
     labels:
-      starbound.destcription: "Peronal Starbound Server"
-      starbound.name: "Starbound Server"
+      jazy.starbound.server.description: "Peronal Starbound Server"
+      jazy.starbound.server.name: "Starbound Server"
     networks:
       - starbound
     volumes:
@@ -33,7 +34,7 @@ services:
       - STALE_BACKUP_TIME=30
     image: jazy5552/backuper
     labels:
-      jazy.terraria.backuper.description: "Container to create backups for starbound"
+      jazy.starbound.backuper.description: "Container to create backups for starbound"
     volumes:
       - "starbound-data:/backup-input:ro"
       - "/home/jazy/starbound-server/backups:/backup-output"
